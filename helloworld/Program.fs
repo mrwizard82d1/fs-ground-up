@@ -7,6 +7,7 @@ let greet person =
 
 [<EntryPoint>]
 let main argv =
-    Array.iter greet argv
+    argv |> Array.iter greet
+
     printfn "Nice to meet you."
     0
