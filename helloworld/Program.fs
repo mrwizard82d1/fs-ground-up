@@ -4,6 +4,6 @@ open System
 
 [<EntryPoint>]
 let main argv =
-    printfn "Hello World from my F# program!"
-    printfn "The args are: %A" argv
+    let person = argv.[0] // Get first item in argv
+    printfn "Hello, %s, from my F# program!" person
     0 // return an integer exit code
