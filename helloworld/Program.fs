@@ -3,11 +3,17 @@
 open System
 
 let greet person =
-   printfn "Hello, %s, from my F# program!" person
+    printfn "Hello, %s, from my F# program!" person
+
+let isValid person =
+    // A person (name) is valid if it **does not** consist solely
+    // of whitespace
+    not(String.IsNullOrWhiteSpace person)
 
 [<EntryPoint>]
 let main argv =
-    argv |> Array.iter greet
+    let validNames = argv |> Array.filter isValid
+    validNames |> Array.iter greet
 
     printfn "Nice to meet you."
     0
