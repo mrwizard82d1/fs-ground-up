@@ -4,6 +4,8 @@ open System
 
 [<EntryPoint>]
 let main argv =
-    let person = argv.[0] // Get first item in argv
+    let mutable person = "Anonymous Person"
+    if argv.Length > 0 then
+        person <- argv.[0]
     printfn "Hello, %s, from my F# program!" person
-    0 // return an integer exit code
+    0
