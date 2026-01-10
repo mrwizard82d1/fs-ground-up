@@ -12,8 +12,9 @@ let isValid person =
 
 [<EntryPoint>]
 let main argv =
-    let validNames = argv |> Array.filter isValid
-    validNames |> Array.iter greet
+    argv
+    |> Array.filter isValid
+    |> Array.iter greet
 
     printfn "Nice to meet you."
     0
