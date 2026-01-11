@@ -12,7 +12,7 @@ let printMeanScore (row: string) =
         |> Array.average
 
 
-    printfn "%s %s %A" name id scores
+    printfn "%s\t%s\t%f" name id scores
 
 let summarize_file filePath =
     let rows = File.ReadAllLines filePath
