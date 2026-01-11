@@ -33,9 +33,6 @@ module Student =
     let printSummary (student: Student) =
         printfn "%s\t%s\t%0.1f\t%0.1f\t%0.1f" student.Name student.Id student.MeanScore student.MinScore student.MaxScore
 
-let getSortKey (student: Student) =
-    student.MeanScore
-
 let summarize_file filePath =
     let rows = File.ReadAllLines filePath
     let studentCount = (rows |> Array.length) - 1
@@ -45,7 +42,7 @@ let summarize_file filePath =
     // Skip first line (contains field headers)
     |> Array.skip 1
     |> Array.map Student.fromString // convert each line to a Student instance
-    |> Array.sortByDescending getSortKey // Sort by mean score (descending)
+    |> Array.sortBy (fun student -> student.Name) // Sort by name
     |> Array.iter Student.printSummary // print the summary of each Student
 
 
