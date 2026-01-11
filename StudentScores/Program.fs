@@ -1,6 +1,19 @@
 ﻿open System
 open System.IO
 
+module Float =
+    // Try to convert a string to a floating point number
+    let tryFromString s =
+        if s = "N/A" then
+            None
+        else
+            Some (float s)
+   
+    let tryFromStringOr50 s =
+        s
+        |> tryFromString
+        |> Option.defaultValue 50.0
+
 type Student =
     {
         Name: string
@@ -18,7 +31,7 @@ module Student =
         let scores =
             items
             |> Array.skip 2
-            |> Array.map float
+            |> Array.map Float.tryFromStringOr50
         let meanScore = scores |> Array.average
         let minScore = scores |> Array.min
         let maxScore = scores |> Array.max
