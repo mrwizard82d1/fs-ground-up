@@ -8,7 +8,7 @@ let greet person =
 let isValid person =
     // A person (name) is valid if it **does not** consist solely
     // of whitespace
-    not(String.IsNullOrWhiteSpace person)
+    String.IsNullOrWhiteSpace person |> not
 
 let isAllowed person =
     // We wil **not** greet Eve.
