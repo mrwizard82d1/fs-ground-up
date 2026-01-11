@@ -9,10 +9,12 @@ let printMeanScore (row: string) =
         items
         |> Array.skip 2
         |> Array.map float
-        |> Array.average
+    let meanScore = scores |> Array.average
+    let min = scores |> Array.min
+    let max = scores |> Array.max
 
     // Print average score rounded to 1 decimal place
-    printfn "%s\t%s\t%0.1f" name id scores
+    printfn "%s\t%s\t%0.1f\t%0.1f\t%0.1f" name id meanScore min max
 
 let summarize_file filePath =
     let rows = File.ReadAllLines filePath
