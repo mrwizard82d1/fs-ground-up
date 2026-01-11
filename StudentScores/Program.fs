@@ -1,8 +1,11 @@
 ﻿open System
 open System.IO
 
-let printMeanScore row =
+let printMeanScore (row: string) =
     let items = row.Split('\t')
+    let name = items[0]
+    let id = items[1]
+
     printfn "%A" items
 
 let summarize_file filePath =
