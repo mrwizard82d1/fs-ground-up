@@ -5,8 +5,12 @@ let printMeanScore (row: string) =
     let items = row.Split('\t')
     let name = items[0]
     let id = items[1]
+    let scores =
+        items
+        |> Array.skip 2
 
-    printfn "%A" items
+
+    printfn "%s %s %A" name id scores
 
 let summarize_file filePath =
     let rows = File.ReadAllLines filePath
