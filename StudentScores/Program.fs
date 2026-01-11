@@ -42,9 +42,8 @@ let summarize_file filePath =
     // Skip first line (contains field headers)
     |> Array.skip 1
     |> Array.map Student.fromString // convert each line to a Student instance
-    |> Array.sortBy (fun student -> student.Name) // Sort by name
+    |> Array.sortByDescending (fun student -> student.MeanScore) // Sort by name
     |> Array.iter Student.printSummary // print the summary of each Student
-
 
 [<EntryPoint>]
 let main argv =
