@@ -2,7 +2,8 @@
 open System.IO
 
 let printMeanScore row =
-    printfn "%s" row
+    let items = row.Split('\t')
+    printfn "%A" items
 
 let summarize_file filePath =
     let rows = File.ReadAllLines filePath
