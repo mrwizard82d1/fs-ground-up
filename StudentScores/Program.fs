@@ -7,6 +7,9 @@ let main argv =
         let filePath = argv.[0]
         if File.Exists filePath then
             printfn "Processing %s" filePath
+            let rows = File.ReadAllLines filePath
+            let studentCount = (rows |> Array.length) - 1
+            printfn "Found %i students" studentCount
             0
         else
             printfn "Supplied file does not exist %s" filePath
