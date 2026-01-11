@@ -11,8 +11,8 @@ let printMeanScore (row: string) =
         |> Array.map float
         |> Array.average
 
-
-    printfn "%s\t%s\t%f" name id scores
+    // Print average score rounded to 1 decimal place
+    printfn "%s\t%s\t%0.1f" name id scores
 
 let summarize_file filePath =
     let rows = File.ReadAllLines filePath
