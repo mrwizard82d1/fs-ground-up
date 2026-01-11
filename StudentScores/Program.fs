@@ -9,10 +9,10 @@ module Float =
         else
             Some (float s)
    
-    let tryFromStringOr50 s =
+    let tryFromStringOrValue value s =
         s
         |> tryFromString
-        |> Option.defaultValue 50.0
+        |> Option.defaultValue value
 
 type Student =
     {
@@ -31,7 +31,7 @@ module Student =
         let scores =
             items
             |> Array.skip 2
-            |> Array.map Float.tryFromStringOr50
+            |> Array.map (Float.tryFromStringOrValue 50.0)
         let meanScore = scores |> Array.average
         let minScore = scores |> Array.min
         let maxScore = scores |> Array.max
