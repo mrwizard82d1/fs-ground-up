@@ -8,7 +8,8 @@ let printMeanScore (row: string) =
     let scores =
         items
         |> Array.skip 2
-        |> Array.averageBy float
+        |> Array.map float
+        |> Array.average
 
     // Print average score rounded to 1 decimal place
     printfn "%s\t%s\t%0.1f" name id scores
