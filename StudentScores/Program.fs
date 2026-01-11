@@ -9,6 +9,7 @@ let printMeanScore (row: string) =
         items
         |> Array.skip 2
         |> Array.map float
+        |> Array.average
 
 
     printfn "%s %s %A" name id scores
