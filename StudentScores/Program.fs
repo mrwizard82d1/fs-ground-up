@@ -1,10 +1,18 @@
 ﻿open System
 open System.IO
 
+let printMeanScore row =
+    printfn "%s" row
+
 let summarize_file filePath =
     let rows = File.ReadAllLines filePath
     let studentCount = (rows |> Array.length) - 1
     printfn "Found %i students" studentCount
+
+    rows
+    // Skip first line (contains field headers)
+    |> Array.skip 1
+    |> Array.iter printMeanScore
 
 
 [<EntryPoint>]
