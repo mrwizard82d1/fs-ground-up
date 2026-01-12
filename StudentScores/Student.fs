@@ -2,7 +2,8 @@ namespace StudentScores
 
 type Student =
     {
-        Name: string
+        Surname: string
+        GivenName: string
         Id: string
         MeanScore: float
         MaxScore: float
@@ -10,9 +11,16 @@ type Student =
     }
 
 module Student =
+    
+    let namePart i (s: string) =
+        let elements = s.Split(',')
+        elements.[i].Trim()
+        
     let fromString (s: string) =
         let items = s.Split('\t')
         let name = items[0]
+        let surname = namePart 0 name
+        let givenName = namePart 1 name
         let id = items[1]
         let scores =
             items
@@ -24,7 +32,8 @@ module Student =
         let minScore = scores |> Array.min
         let maxScore = scores |> Array.max
         {
-            Name = name
+            Surname = surname
+            GivenName = givenName
             Id = id
             MeanScore = meanScore
             MaxScore = maxScore
@@ -32,5 +41,5 @@ module Student =
         }
 
     let printSummary (student: Student) =
-        printfn "%s\t%s\t%0.1f\t%0.1f\t%0.1f" student.Name student.Id student.MeanScore student.MinScore student.MaxScore
+        printfn "%s, %s\t%s\t%0.1f\t%0.1f\t%0.1f" student.Surname student.GivenName student.Id student.MeanScore student.MinScore student.MaxScore
 
