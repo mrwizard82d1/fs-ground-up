@@ -12,15 +12,16 @@ type Student =
 
 module Student =
     
-    let namePart i (s: string) =
+    let nameParts (s: string) =
         let elements = s.Split(',')
-        elements.[i].Trim()
+        let surname = elements[0].Trim()
+        let givenName = elements[1].Trim()
+        surname, givenName
         
     let fromString (s: string) =
         let items = s.Split('\t')
         let name = items[0]
-        let surname = namePart 0 name
-        let givenName = namePart 1 name
+        let surname, givenName = name |> nameParts
         let id = items[1]
         let scores =
             items
