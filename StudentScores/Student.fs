@@ -26,7 +26,7 @@ module Student =
                    GivenName = "(None)"
                 |}
             | _ ->
-                raise (System.FormatException("Invalid name format"))
+                raise (System.FormatException(sprintf "Invalid name format: \"%s\"" s))
                 
     let fromString (s: string) =
         let items = s.Split('\t')
