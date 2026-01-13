@@ -9,7 +9,7 @@ type Point<'T> =
     
 module Point =
     
-    let inline moveBy (dx: 'T) (dy: 'T) (p: Point<'T>) =
+    let moveBy (dx: 'T) (dy: 'T) (p: Point<'T>) =
         {
             X = p.X + dx
             Y = p.Y + dy
