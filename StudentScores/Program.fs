@@ -13,8 +13,10 @@ let main argv =
                 Summary.summarize_file filePath
                 0
             with
-                | :? FormatException ->
+                // Capture the specific exception using `as e` clause
+                | :? FormatException as e ->
                     printfn "The file was not in the expected format."
+                    printfn "Details: %s" e.Message
                     1
         else
             printfn "Supplied file does not exist %s" filePath
