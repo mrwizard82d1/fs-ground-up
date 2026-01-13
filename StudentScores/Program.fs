@@ -22,7 +22,7 @@ let main argv =
                     printfn "Could not open the file %s." filePath
                     printfn "Details: %s" ioe.Message
                     4
-                | ex ->
+                | _ as ex ->
                     printfn "Unhandled exception: %s" ex.Message
                     5
         else
