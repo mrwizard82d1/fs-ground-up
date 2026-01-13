@@ -1,0 +1,5 @@
+namespace Bricks
+
+type Brick =
+    {}
+
