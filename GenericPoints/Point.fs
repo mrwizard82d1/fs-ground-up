@@ -14,3 +14,9 @@ module Point =
             X = p.X + dx
             Y = p.Y + dy
         }
+        
+    let inline scaleBy (factor: 'T) (p: Point<'T>) =
+        {
+            X = p.X * factor
+            Y = p.Y * factor
+        }
