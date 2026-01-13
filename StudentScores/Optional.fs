@@ -4,9 +4,10 @@ type Optional<'T> =
     | Something of 'T
     | Nothing
 
-module Demo =
+module Optional =
     
-    let a = Something "abc"
-    let b = Something 7
-    let c = Something 3.14
-    let d = Nothing
+    let defaultValue (d: 'T) (optional: Optional<'T>) =
+        match optional with
+            | Something v -> v
+            | Nothing -> d
+            

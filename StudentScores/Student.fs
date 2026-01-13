@@ -35,8 +35,9 @@ module Student =
         let scores =
             items
             |> Array.skip 2
-            |> Array.map TestResult.fromString
-            |> Array.choose TestResult.tryEffectiveScore
+            // |> Array.map TestResult.fromString
+            // |> Array.choose TestResult.tryEffectiveScore
+            |> Array.map (Float.fromStringOr 50.0)
 
         let meanScore = scores |> Array.average
         let minScore = scores |> Array.min
