@@ -28,12 +28,10 @@ let main _argv =
     
     // Calculate the sum of the squares of integers between
     // 1 and 1000, inclusive.
-    let squares_1_1000 = [|
-        for i in 1..1000 -> i * i
-    |]
+    let total =
+        [| for i in 1..1000 -> i * i |]
+        |> Array.sum
     
-    let result = Array.sum(squares_1_1000)
-    
-    printfn $"%d{result}"
+    printfn $"%d{total}"
 
     0
