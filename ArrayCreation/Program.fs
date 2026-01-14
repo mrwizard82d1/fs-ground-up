@@ -9,7 +9,7 @@ let main _argv =
     let todayIsThursday() =
         DateTime.Now.DayOfWeek = DayOfWeek.Thursday
     
-    // Initialize an array using an expression
+    // Initialize an array using an "Array comprehension"
     let numbers = [|
         // This form yields **multiple results**
         // - 42 (if today is Thursday)
