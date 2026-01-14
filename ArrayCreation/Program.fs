@@ -3,6 +3,11 @@
 [<EntryPoint>]
 let main _argv =
     
-    let numbers = [| 1; 2; 4; 8; 16 |]
-    
+    // Initialize an array using an expression
+    let numbers = [|
+        for i in 0..4 -> pown 2 i
+    |]
+
+    printfn $"%A{numbers}"
+
     0
