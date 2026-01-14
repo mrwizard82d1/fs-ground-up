@@ -5,14 +5,8 @@
 let main _argv =
     
     // Other ways to initialize Arrays
-    let numbers = Array.init 5 (fun i -> pown 2 i)
+    let initiallyZeros = Array.zeroCreate<int> 10
 
-    printfn $"%A{numbers}"
-    
-    let total =
-        Array.init 1000 (fun i -> (i + 1) * (i * 1))
-        |> Array.sum
-        
-    printfn $"%d{total}"
+    printfn $"%A{initiallyZeros}"
 
     0
