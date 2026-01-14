@@ -72,7 +72,7 @@ let main argv =
 
     groupedByStudCount
     // Extract the stud count from the (first item in the) tuple
-    |> Array.sortBy fst
+    |> Array.sortByDescending fst
     |> Array.iter (fun (studCount, bricks) ->
         printfn "%d %s" studCount (if studCount = 1 then "stud" else "studs")
         bricks
