@@ -10,7 +10,7 @@ let main argv =
         if File.Exists filePath then
             printfn "Processing %s" filePath
             try
-                Summary.summarize_file filePath
+                Summary.summarize filePath
                 0
             with
                 // Capture the specific exception using `as e` clause
