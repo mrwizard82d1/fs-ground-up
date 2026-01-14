@@ -65,4 +65,18 @@ let main argv =
     )
     printfn ""
 
+    printfn "Grouped by stud count (Array.groupBy):"
+    let groupedByStudCount =
+        bricks
+        |> Array.groupBy (fun b -> b.StudRows * b.StudColumns)
+
+    groupedByStudCount
+    |> Array.iter (fun (studCount, bricks) ->
+        printfn "%d %s" studCount (if studCount = 1 then "stud" else "studs")
+        bricks
+        |> Array.iter Brick.printConsole
+        printfn ""
+    )
+    printfn ""
+
     0
