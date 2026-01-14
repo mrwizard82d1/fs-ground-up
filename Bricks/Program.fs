@@ -71,8 +71,8 @@ let main argv =
         |> Array.groupBy (fun b -> b.StudRows * b.StudColumns)
 
     groupedByStudCount
-    // Extract the stud count from the tuple "manually" (but `bricks` unused)
-    |> Array.sortBy (fun (studCount, bricks) -> studCount)
+    // Extract the stud count from the tuple "manually"
+    |> Array.sortBy (fun (studCount, _) -> studCount)
     |> Array.iter (fun (studCount, bricks) ->
         printfn "%d %s" studCount (if studCount = 1 then "stud" else "studs")
         bricks
