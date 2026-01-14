@@ -7,7 +7,8 @@ module Summary =
         printfn "%s" (surname.ToUpperInvariant())
         
         students
-        |> Array.sortBy (fun student -> student.GivenName)
+        // Correct minor error for students with same name (given and surname)
+        |> Array.sortBy (fun student -> student.GivenName, student.Id)
         |> Array.iter (fun student ->
             printfn "\t%20s\t%s\t%0.1f\t%0.1f\t%0.1f"
                 student.GivenName student.Id student.MeanScore student.MinScore student.MaxScore)
