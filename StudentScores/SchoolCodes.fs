@@ -23,4 +23,7 @@ module SchoolCodes =
                 KeyValuePair.Create(id, name))
             
         // Create a new .NET `Dictionary`
-        Dictionary<int, string>(pairs)
+        //
+        // The F# compiler can (often) infer the correct types to put
+        // in the dictionary.
+        Dictionary<_, _>(pairs)
