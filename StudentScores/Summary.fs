@@ -13,7 +13,7 @@ module Summary =
             printfn "\t%20s\t%s\t%0.1f\t%0.1f\t%0.1f"
                 student.GivenName student.Id student.MeanScore student.MinScore student.MaxScore)
     
-    let summarize filePath =
+    let summarize schoolCodesFilePath filePath =
         // This implementation contains a "major" mistake: it reads the
         // sequence of lines in the file **twice**: once when calculating
         // the `studentCount` (calling `Seq.length`) and once when
@@ -36,9 +36,11 @@ module Summary =
             |> Seq.cache
         let studentCount = (rows |> Seq.length) - 1
         printfn "Found %i students" studentCount
+        
+        let schoolCodes = SchoolCodes.load schoolCodesFilePath
 
         rows
         |> Seq.skip 1
-        |> Seq.map Student.fromString
+        |> Seq.map (Student.fromString schoolCodes)
         |> Seq.sortByDescending (fun student -> student.MeanScore)
         |> Seq.iter Student.printSummary

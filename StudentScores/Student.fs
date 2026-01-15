@@ -5,12 +5,15 @@ type Student =
         Surname: string
         GivenName: string
         Id: string
+        SchoolName: string
         MeanScore: float
         MaxScore: float
         MinScore: float
     }
 
 module Student =
+    
+    open System.Collections.Generic
     
     let nameParts (s: string) =
         let elements = s.Split(',')
@@ -28,13 +31,15 @@ module Student =
             | _ ->
                 raise (System.FormatException(sprintf "Invalid name format: \"%s\"" s))
                 
-    let fromString (s: string) =
+    let fromString (schoolCodes: IDictionary<int, string>) (s: string) =
         let items = s.Split('\t')
         let name = items[0] |> nameParts
         let id = items[1]
+        let schoolCode = items.[2] |> int
+        let schoolName = schoolCodes.[schoolCode]
         let scores =
             items
-            |> Array.skip 2
+            |> Array.skip 3
             |> Array.map TestResult.fromString
             |> Array.choose TestResult.tryEffectiveScore
 
@@ -45,6 +50,7 @@ module Student =
             Surname = name.Surname
             GivenName = name.GivenName
             Id = id
+            SchoolName = schoolName
             MeanScore = meanScore
             MaxScore = maxScore
             MinScore = minScore
