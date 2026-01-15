@@ -36,8 +36,8 @@ module SchoolCodes =
         |> Seq.skip 1
         |> Seq.map (fun row ->
             let elements = row.Split('\t', 2)
-            let id = elements.[0] |> int
-            let name = elements.[1]
+            let id = elements[0] |> int
+            let name = elements[1]
             id, name)
         // This expression pipes the pairs into the `dict` function
         // which can be used to create .NET `IDictionary`. Note that
