@@ -10,6 +10,8 @@ let main _argv =
 
     Dates.from DateTime.Now
     |> Seq.filter (fun d -> d.Month = 1 && d.Day = 1)
+    // Only take 10 items from filtered sequence
+    |> Seq.truncate 10
     |> Seq.iter (fun d -> printfn $"%i{d.Year} %s{d.DayOfWeek.ToString()}")
 
     0
