@@ -26,6 +26,10 @@ module SchoolCodes =
         // //
         // // The F# compiler can (often) infer the correct types to put
         // // in the dictionary.
+        //
+        // Use similar code to create a .NET `Dictionary` if you want to
+        // **mutate** the dictionary later. Using `dict` provided by F#
+        // language creates an **immutable** `Dictionary`.
         // Dictionary<_, _>(pairs)
         
         File.ReadAllLines filePath
