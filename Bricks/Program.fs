@@ -30,6 +30,8 @@ let main argv =
             (4, 1, ConsoleColor.Magenta)
         }
         |> Seq.map (fun (sc, sr, cc) -> { StudColumns = sc; StudRows = sr; Color = cc })
+        // Cache the items in the sequence when they are computed.
+        |> Seq.cache
 
     printfn "All the bricks:"
     bricks
