@@ -19,7 +19,21 @@ module Summary =
         // the `studentCount` (calling `Seq.length`) and once when
         // iterating over the sequence to print the summary for
         // each `Student`.
-        let rows = File.ReadLines filePath
+        //
+        // To repair this issue, I cache the sequence I read from disk.
+        // This action retains the sequence after it is read (at the
+        // cost of core memory) but prevents us from needing to read
+        // the data from the disk again (a **very** slow operation).
+        //
+        // In general, because the data read is so small, one may
+        // not notice the difference when executing this example
+        // program because the data is relatively small. (Although,
+        // I thought I noticed a slight difference in running this
+        // version of the code compared to the implementation without
+        // caching the lines read from disk.
+        let rows =
+            File.ReadLines filePath
+            |> Seq.cache
         let studentCount = (rows |> Seq.length) - 1
         printfn "Found %i students" studentCount
 
