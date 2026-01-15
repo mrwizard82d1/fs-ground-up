@@ -1,18 +1,15 @@
 ﻿open System
 
+module Dates =
+    
+    let from (startDate: DateTime) =
+        Seq.initInfinite (fun i -> startDate.AddDays(float i))
+
 [<EntryPoint>]
 let main _argv = 
 
-    let squares =
-        Seq.initInfinite (fun i ->
-            let j = i + 1
-            j * j)
-    let total =
-        squares
-        // Hmm... Why not `Seq.take`?
-        |> Seq.truncate 1000
-        |> Seq.sum
-
-    printfn $"The total is: %i{total}"
+    Dates.from DateTime.Now
+    |> Seq.filter (fun d -> d.Month = 1 && d.Day = 1)
+    |> Seq.iter (fun d -> printfn $"%i{d.Year} %s{d.DayOfWeek.ToString()}")
 
     0
