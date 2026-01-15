@@ -35,8 +35,8 @@ module Summary =
             File.ReadLines filePath
             |> Seq.cache
         let studentCount = (rows |> Seq.length) - 1
-        printfn "Found %i students" studentCount
-        
+        printfn $"Found %i{studentCount} students"
+
         let schoolCodes = SchoolCodes.load schoolCodesFilePath
 
         rows
