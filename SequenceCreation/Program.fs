@@ -27,7 +27,7 @@ let main _argv =
     printf "Drunkard's walk"
     
     Drunkard.walk
-    |> Seq.take 10
+    |> Seq.take 100
     |> Seq.iter (fun p -> printfn $"X: %i{p.X} Y: %i{p.Y}")
     
     0
