@@ -14,6 +14,11 @@ module Summary =
                 student.GivenName student.Id student.MeanScore student.MinScore student.MaxScore)
     
     let summarize filePath =
+        // This implementation contains a "major" mistake: it reads the
+        // sequence of lines in the file **twice**: once when calculating
+        // the `studentCount` (calling `Seq.length`) and once when
+        // iterating over the sequence to print the summary for
+        // each `Student`.
         let rows = File.ReadLines filePath
         let studentCount = (rows |> Seq.length) - 1
         printfn "Found %i students" studentCount
