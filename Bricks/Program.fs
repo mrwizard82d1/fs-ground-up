@@ -7,6 +7,7 @@ let main argv =
     let bricks =
 
         [|
+            do printfn "Creating elements"
             (3, 2, ConsoleColor.Yellow)
             (4, 2, ConsoleColor.Green)
             (2, 1, ConsoleColor.Magenta)
