@@ -6,7 +6,7 @@ let main argv =
 
     let bricks =
 
-        seq {
+        [|
             do printfn "Creating elements"
             (3, 2, ConsoleColor.Yellow)
             (4, 2, ConsoleColor.Green)
@@ -28,9 +28,8 @@ let main argv =
             (1, 1, ConsoleColor.Green)
             (2, 1, ConsoleColor.Yellow)
             (4, 1, ConsoleColor.Magenta)
-        }
-        |> Seq.map (fun (sc, sr, cc) -> { StudColumns = sc; StudRows = sr; Color = cc })
-        |> Seq.toArray // or `Array.ofSeq`
+        |]
+        |> Array.map (fun (sc, sr, cc) -> { StudColumns = sc; StudRows = sr; Color = cc })
 
     printfn "All the bricks:"
     bricks
