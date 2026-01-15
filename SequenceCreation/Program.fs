@@ -26,7 +26,12 @@ module MathSequence =
             // - The index of the next item in the sequence
             // - The previous item in the sequence
             // - The (calculated) next item in the sequence
-            Some (pSubN, { n = n'; pSub1 = state.pSub1; pSub2 = pSubN }))
+            //
+            // Interesting... Somehow in my solution, I did not realize
+            // that the first item in original tuple was modeling
+            // p-sub-n-minus-2 and the second item was modeling
+            // p-sub-n-minus-1.
+            Some (pSubN, { n = n'; pSub2 = state.pSub1; pSub1 = pSubN }))
 
 [<EntryPoint>]
 let main _argv = 
