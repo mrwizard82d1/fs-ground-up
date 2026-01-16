@@ -20,3 +20,6 @@ module SchoolCodes =
         // the function, `dict`, creates a `Dictionary` (that
         // implements `IDictionary`)
         |> Map.ofSeq
+        // To support a "homeschooled" student, we add a "special" item
+        // with the key 0 (an `int`)
+        |> Map.add 0 "(External)"
