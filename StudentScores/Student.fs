@@ -37,8 +37,12 @@ module Student =
         let id = items[1]
         let schoolCode = items.[2] |> int
         let schoolName =
-            schoolCodes.TryFind schoolCode
-            |> Option.defaultValue "(Unknown)"
+            // schoolCodes.TryFind schoolCode
+            // |> Option.defaultValue "(Unknown)"
+            // Considered more idiomatic F#
+            schoolCodes
+                |> Map.tryFind schoolCode
+                |> Option.defaultValue "(Unknown)"
         let scores =
             items
             |> Array.skip 3
