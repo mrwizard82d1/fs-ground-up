@@ -40,3 +40,12 @@ type ColorHistory(initialColors: seq<Color>, maxLength: int) =
         match colors with
         | head::_ -> head |> Some
         | [] -> None
+        
+    // Remove the latest element of color history
+    member this.RemoveLatest() =
+        let colors' =
+            match colors with
+            | _::tail -> tail
+            | [] -> []
+        colors <- colors'
+        

@@ -1,5 +1,4 @@
-﻿open System
-open System.Drawing
+﻿open System.Drawing
 open ColorManagement
 
 let listColors (history: ColorHistory) =
@@ -29,7 +28,23 @@ let main _argv =
     
     printfn "After adding many colors:"
     [ Color.Green; Color.Yellow; Color.Orange; Color.Red; Color.PeachPuff ]
-    |> List.iter (history.Add)
+    |> List.iter history.Add
     history |> listColors
+    
+    printfn "I can create a color history with some colors:"
+    let history = ColorHistory([Color.Indigo; Color.Violet], 7)
+    history |> listColors
+    
+    printfn "I can explicitly remove the most recent color"
+    history.RemoveLatest()
+    history |> listColors
+    
+    printfn "I can repeatedly remove a color once history is empty:"
+    history.RemoveLatest()
+    history.RemoveLatest()
+    history.RemoveLatest()
+    history |> listColors
+    
+    
     
     0
