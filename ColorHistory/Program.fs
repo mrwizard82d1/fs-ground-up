@@ -15,4 +15,10 @@ let main _argv =
     let history = ColorHistory([ Color.Indigo; Color.Violet ], 7)
     history |> listColors
     
+    printfn "I can add a color:"
+    history.Add(Color.Blue)
+    history |> listColors
+    printfn "The new color is the latest:"
+    printfn $"%O{history.TryLatest()}"
+    
     0
