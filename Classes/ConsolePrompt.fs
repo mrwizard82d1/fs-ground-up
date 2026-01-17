@@ -26,7 +26,7 @@ type ConsolePrompt(message: String, maxTries: int) =
         with get() =
             foreground, background
         and set(fg, bg  ) =
-            if Console.ForegroundColor = Console.BackgroundColor then
+            if fg = bg then
                 raise <| ArgumentException("The foreground and background colors cannot be the same.")
             foreground <- fg
             background <- bg
