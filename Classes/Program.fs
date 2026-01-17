@@ -6,7 +6,7 @@ let main _argv =
     // is **optional**. Note that instantiating this class
     // **does not** actually prompt the user. The user is actually
     // prompted to enter data when the `GetValue()` method is invoked.
-    let namePrompt = ConsolePrompt("Please enter your name")
+    let namePrompt = ConsolePrompt("Please enter your name", 3)
     
     // Invokes the instance method, `GetValue()`. This method actually
     // prompts the user for her name.
