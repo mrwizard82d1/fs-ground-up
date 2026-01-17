@@ -31,11 +31,11 @@ module Student =
             | _ ->
                 raise (System.FormatException(sprintf "Invalid name format: \"%s\"" s))
                 
-    let fromString (schoolCodes: Map<int, string>) (s: string) =
+    let fromString (schoolCodes: Map<string, string>) (s: string) =
         let items = s.Split('\t')
         let name = items[0] |> nameParts
         let id = items[1]
-        let schoolCode = items.[2] |> int
+        let schoolCode = items[2]
         let schoolName =
             // schoolCodes.TryFind schoolCode
             // |> Option.defaultValue "(Unknown)"

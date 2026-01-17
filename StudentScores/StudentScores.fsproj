@@ -20,6 +20,8 @@
     <Content Include="Samples\StudentScoresSchool.txt" />
     <Content Include="Samples\SchoolCodes.txt" />
     <Content Include="Samples\StudentScoresSchoolExtraCodes.txt" />
+    <Content Include="Samples\SchoolCodesAlpha.txt" />
+    <Content Include="Samples\StudentScoresSchoolAlphaCodes.txt" />
   </ItemGroup>
 
 </Project>
