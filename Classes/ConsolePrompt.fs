@@ -26,6 +26,13 @@ type ConsolePrompt(message: String, maxTries: int) =
         
         // Check for no input. If so, try again.
         if String.IsNullOrWhiteSpace(input) && tryCount < maxTries then
+            if this.BeepOnError then
+                Console.Beep()
             this.GetValue()
         else
             input
+            
+    // Set flag to true to beep when an error occurs
+    member val BeepOnError = true
+        // This member can be both read and written after construction
+        with get, set
