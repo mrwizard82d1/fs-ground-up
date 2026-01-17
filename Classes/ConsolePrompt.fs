@@ -17,6 +17,11 @@ type ConsolePrompt(message: String) =
     // one can access members defined in the constructor **without**
     // a reference to `this`.
     member this.GetValue() =
-        printf $"%s{trimmedMessage}"
+        printf $"%s{trimmedMessage}: "
         let input = Console.ReadLine()
-        input
+        
+        // Check for no input. If so, try again.
+        if String.IsNullOrWhiteSpace(input) then
+            this.GetValue()
+        else
+            input
