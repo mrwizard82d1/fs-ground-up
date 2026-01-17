@@ -27,4 +27,9 @@ let main _argv =
     printfn "The newly added color is the latest and the original is removed."
     printfn $"%O{history.TryLatest()}"
     
+    printfn "After adding many colors:"
+    [ Color.Green; Color.Yellow; Color.Orange; Color.Red; Color.PeachPuff ]
+    |> List.iter (history.Add)
+    history |> listColors
+    
     0
