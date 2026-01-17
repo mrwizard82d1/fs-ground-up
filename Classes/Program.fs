@@ -8,6 +8,9 @@ let main _argv =
     // prompted to enter data when the `GetValue()` method is invoked.
     let namePrompt = ConsolePrompt("Please enter your name", 3)
     
+    // Change (irritating) beeping on empty input.
+    namePrompt.BeepOnError <- false
+    
     // Invokes the instance method, `GetValue()`. This method actually
     // prompts the user for her name.
     let name = namePrompt.GetValue()
