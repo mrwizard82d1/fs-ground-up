@@ -1,4 +1,5 @@
-﻿open Classes
+﻿open System
+open Classes
 
 [<EntryPoint>]
 let main _argv =
@@ -10,6 +11,9 @@ let main _argv =
     
     // Change (irritating) beeping on empty input.
     namePrompt.BeepOnError <- false
+    
+    // Test out changing our Console color scheme
+    namePrompt.ColorScheme <- ConsoleColor.Cyan, ConsoleColor.DarkGray
     
     // Invokes the instance method, `GetValue()`. This method actually
     // prompts the user for her name.
