@@ -13,7 +13,7 @@ let main _argv =
     namePrompt.BeepOnError <- false
     
     // Test out changing our Console color scheme
-    namePrompt.ColorScheme <- ConsoleColor.Cyan, ConsoleColor.DarkGray
+    namePrompt.ColorScheme <- ConsoleColor.Cyan, ConsoleColor.Cyan
     
     // Invokes the instance method, `GetValue()`. This method actually
     // prompts the user for her name.

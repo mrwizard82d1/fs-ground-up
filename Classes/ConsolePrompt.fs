@@ -1,7 +1,6 @@
 namespace Classes
 
 open System
-open System.Diagnostics.CodeAnalysis
 
 type ConsolePrompt(message: String, maxTries: int) =
     // Constructor (through `let trimmedMessage = ...`)
@@ -27,6 +26,8 @@ type ConsolePrompt(message: String, maxTries: int) =
         with get() =
             foreground, background
         and set(fg, bg  ) =
+            if Console.ForegroundColor = Console.BackgroundColor then
+                raise <| ArgumentException("The foreground and background colors cannot be the same.")
             foreground <- fg
             background <- bg
     
@@ -38,6 +39,7 @@ type ConsolePrompt(message: String, maxTries: int) =
         
         Console.ForegroundColor <- foreground
         Console.BackgroundColor <- background
+            
         printf $"%s{trimmedMessage}: "
         Console.ResetColor()
         
@@ -53,9 +55,9 @@ type ConsolePrompt(message: String, maxTries: int) =
             
     // Set flag to true to beep when an error occurs
     //
-    // This (simple) implementation works fine for simple behavior;
+    // This simple implementation works fine for simple behavior;
     // however, what if we want more complex behavior? (See behavior
-    // around `foreground` and `background`.
+    // around `foreground` and `background`.)
     member val BeepOnError = true
         // This member can be both read and written after construction
         with get, set
